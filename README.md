@@ -1,291 +1,337 @@
- Sajilo Yatra – Team 402 3rror
+# Sajilo Yatra
+### Intelligent Public Transport Navigation System for Kathmandu
 
-Helping anyone navigate Nepal’s public transport in seconds — without confusion.
+Sajilo Yatra is a full-stack web application designed to simplify public transportation navigation within Kathmandu. The system enables users to determine the correct vehicle, boarding location, drop-off point, and estimated fare within seconds.
 
-With Sajilo Yatra, a user can instantly know:
-- Which vehicle to take  
-- Where to board and where to get off  
-- Approximately how much to pay  
-
-All in under **10 seconds** for major routes inside Kathmandu.
+Developed during **SanKalpa 2026**, organized by *Whitehouse Innovators* at *Himalayan Whitehouse International College* (13 February 2026).
 
 ---
 
-## Team
+# 1. Executive Summary
 
-| Name | Role / Ownership | Contact |
-| --- | --- | --- |
-| Anchit Gautam | Backend / API / Architecture | anchitgautam64@gmail.com / +977 9761888533 |
-| Bipen Shakya | Frontend / UI | bipenshakya239@gmail.com / +977 9840783122 |
-| Asim Pun Magar | Frontend / Data / Research / UI | asimmagar20@gmail.com / +977 9767224983 |
-| Nistee Bhatta | Presentation / UX | bhattanistee@gmail.com / +977 9765962935 |
+Public transportation in Kathmandu lacks structured, accessible, and reliable digital route information. Commuters frequently rely on verbal inquiries, resulting in confusion, time loss, and fare inconsistencies.
 
-**Team name:** 402 3rror
+Sajilo Yatra addresses this problem by providing:
 
----
+- Structured route lookup
+- Fare estimation
+- Transport-focused assistant
+- Complaint tracking system
+- Administrative data management tools
 
-## Judge-ready intros
-
-Anchit built the backend APIs, route logic, and system architecture.  
-Bipen built the React interface and user flow.  
-Asim collected and structured transport data and worked on UI.  
-Nistee worked on usability, research, and presentation.
+The system is built with a scalable full-stack architecture using React, Node.js, Express, and Supabase.
 
 ---
 
-## Project snapshot – where we stand now
+# 2. My Role & Contribution
 
-### Route Search (MVP)
+**Asim Pun Magar – Frontend Development & Transport Data Structuring**
 
-- User enters **From** and **To** on the homepage.
-- Frontend calls `GET /api/route` on the Express backend.
-- Backend checks Supabase (`stops` + `routes`) and returns:
-  - pickup stop  
-  - destination stop  
-  - vehicle name  
-  - estimated fare  
-  - vehicle image (if available)
+Primary responsibilities:
 
----
+- Designed and implemented the React frontend (Vite-based architecture)
+- Built core UI components and routing system
+- Structured and validated transport route data
+- Integrated frontend with backend REST APIs
+- Contributed to chatbot response structure for transport queries
+- Improved usability and interface clarity for first-time users
 
-### SY Assistant (Chatbot)
-
-A focused, transport-aware assistant available directly on the homepage.
-
-- Communicates with `POST /api/chat`.
-- Example questions:
-  - “How do I go from Ratnapark to Koteshwor?”
-  - “Which bus from Ratnapark to Baneshwor?”
-
-It uses:
-- Database route lookup  
-- A curated static list of popular hackathon routes  
-
-The assistant is designed to be **direct, short, and on-topic**.
+My focus was on creating a fast, intuitive, and accessible interface suitable for students, tourists, and new residents.
 
 ---
 
-### Complaint Flow
+# 3. System Architecture Overview
 
-Users can report issues such as:
-- overcharging  
-- unsafe behavior  
-- other incidents  
+The system follows a modular full-stack architecture:
 
-They submit:
-- vehicle number  
-- organization/operator  
-- optional description  
+Frontend (React + Vite)  
+⬇  
+Express REST API  
+⬇  
+Supabase (PostgreSQL Database)
 
-Data is stored in Supabase.  
-Users receive a **Complaint ID** and can later check whether it is:
+Key Components:
 
-`pending → solved → removed`
-
----
-
-### Admin Dashboard
-
-A centralized control panel for transport data.
-
-Admins can manage:
-- Vehicles (name + image)  
-- Stops (with coordinates)  
-- Routes (vehicle ↔ stops ↔ fare)  
-- Proposed routes (approve & reward)  
-- Complaints (update/delete)
-
-All endpoints are under: `/api/admin/...`
+- Route search engine
+- Transport chatbot service
+- Complaint management module
+- Admin dashboard
+- User contribution system
 
 ---
 
-### User Accounts & Contributions
+# 4. Core Functional Modules
 
-- Login/signup via Supabase.  
-- Users can submit new route proposals with photos.  
-- After admin approval:
-  - the route becomes official  
-  - the contributor receives reward points  
+## 4.1 Route Search (MVP)
 
----
+Users input origin and destination stops.
 
-## Problem & users
+Example Endpoint:
+```
+GET /api/route?from=Ratnapark&to=Pulchowk
+```
 
-### Primary users
-- Tourists  
-- Students  
-- New residents  
-- First-time public transport riders  
+Backend Process:
+- Case-insensitive stop matching
+- Route validation using Supabase tables
+- Fare retrieval
+- Optional nearest-stop detection using Haversine formula
 
-### Pain today
-People often:
-- don’t know which vehicle to take  
-- are unsure about stops  
-- get overcharged  
-- waste time asking around  
-
-### Success condition
-
-A person in Kathmandu should know:
-- what to take  
-- from where  
-- what to pay  
-
-within **10 seconds**.
+Response Includes:
+- Pickup stop
+- Destination stop
+- Vehicle name
+- Estimated fare
+- Vehicle image (if available)
 
 ---
 
-## Current MVP capabilities
+## 4.2 SY Assistant (Transport Chatbot)
 
-### Route lookup
-- Case-insensitive stop matching.  
-- Endpoint:  
-  `GET /api/route?from=Ratnapark&to=Pulchowk`
-- Optional GPS nearest-stop detection using the Haversine formula.
+A domain-restricted assistant focused strictly on public transport queries.
 
----
+Endpoint:
+```
+POST /api/chat
+```
 
-### Chatbot assistant
-- Restricted strictly to transport topics.  
-- Attempts DB search first.  
-- Falls back to a curated emergency list including routes like:
-  - Ratnapark → Baneshwor / Tinkune / Koteshwor  
-  - Gongabu → Thamel  
-  - Balkhu → Kalimati  
+Behavior:
+- Attempts database route lookup first
+- Falls back to curated hackathon route dataset
+- Returns concise, actionable responses
+- Rejects non-transport queries
 
----
-
-### Complaints
-Admins can:
-- view  
-- update status  
-- delete  
-
-Users can track complaints anytime using their ID.
+Example Queries:
+- “How do I go from Ratnapark to Koteshwor?”
+- “Which bus from Ratnapark to Baneshwor?”
 
 ---
 
-### Admin tools
-- Vehicle CRUD with image upload  
-- Stops CRUD with coordinate validation  
-- Routes CRUD  
-- Proposed routes  
-  - Approve → create + reward user  
-  - Delete → remove from queue  
+## 4.3 Complaint Management System
+
+Users can submit reports for:
+
+- Overcharging
+- Unsafe behavior
+- Service misconduct
+
+Submission Fields:
+- Vehicle number
+- Operator/organization
+- Description (optional)
+
+Each complaint receives a unique ID and status lifecycle:
+
+```
+pending → solved → removed
+```
+
+Data is stored in Supabase.
 
 ---
 
-## Tech stack
+## 4.4 Admin Dashboard
 
-### Frontend
+Administrative control panel for system management.
+
+Capabilities:
+
+- Vehicle CRUD (with image upload)
+- Stops CRUD (coordinate validation)
+- Routes CRUD
+- Proposed route approval & reward logic
+- Complaint status management
+
+Admin Endpoints:
+```
+/api/admin/...
+```
+
+---
+
+## 4.5 User Accounts & Route Contributions
+
+Authentication handled via Supabase.
+
+Users can:
+- Register / Login
+- Submit proposed routes (with photo evidence)
+- Receive reward points after approval
+
+This encourages community-driven data expansion.
+
+---
+
+# 5. Technology Stack
+
+## Frontend
 - React (Vite)
 - React Router
 - React Icons
 - Modular CSS
 
-### Backend
+## Backend
 - Node.js
-- Express
-- Supabase client
-- Multer
-- Bcrypt
+- Express.js
+- Supabase Client
+- Multer (File Uploads)
+- Bcrypt (Authentication Security)
 - CORS
 - dotenv
 
-### Database (Supabase Postgres)
+## Database
+Supabase PostgreSQL
 
-Tables:
-- vehicles  
-- stops  
-- routes  
-- users  
-- proposed_routes  
-- complaints  
-
----
-
-## Code structure (high level)
-
-src/main.jsx → React entry
-src/App.jsx → routing & global state
-src/pages/Home.jsx → search + results + chatbot
-src/pages/Complain.jsx → complaint system
-src/pages/AdminDashboard.jsx → admin tools
-
-src/backend/server.js
-src/backend/controllers/routeController.js
-src/backend/services/routeService.js
-src/backend/services/stopService.js
-
+Core Tables:
+- vehicles
+- stops
+- routes
+- users
+- proposed_routes
+- complaints
 
 ---
 
-## Local development
+# 6. Code Structure (High-Level)
 
-### Prerequisites
-Node.js **18+**
+```
+src/
+ ├── main.jsx
+ ├── App.jsx
+ ├── pages/
+ │    ├── Home.jsx
+ │    ├── Complain.jsx
+ │    ├── AdminDashboard.jsx
+ │
+ └── backend/
+      ├── server.js
+      ├── controllers/
+      ├── services/
+```
+
+The project follows separation of concerns and modular architecture for scalability.
 
 ---
 
-### Install dependencies
+# 7. Local Development Setup
 
+## Prerequisites
+
+- Node.js 18+
+- npm
+
+---
+
+## Installation
+
+```bash
 npm install
+```
 
-Backend environment
+---
 
-Create: src/backend/.env
+## Backend Configuration
 
+Create:
+
+```
+src/backend/.env
+```
+
+Add:
+
+```
 SUPABASE_URL=your_url
 SUPABASE_ANON_KEY=your_key
 PORT=5000
 OPENAI_API_KEY=your_key
+```
 
-Run backend
+---
 
+## Run Backend
+
+```bash
 node src/backend/server.js
+```
 
 Runs on:
+```
 http://localhost:5000
-Run frontend
+```
 
+---
+
+## Run Frontend
+
+```bash
 npm run dev
+```
 
-Usually:
+Typically runs on:
+```
 http://localhost:5173
-How to test quickly
+```
 
-    Open homepage
+---
 
-    From: Ratnapark
+# 8. Functional Test Example
 
-    To: Pulchowk
+Input:
+From: Ratnapark  
+To: Pulchowk  
 
-    Click Search route
+Output:
+- Vehicle name
+- Estimated fare
+- Boarding instructions
 
-You will receive:
+Additional tests:
+- Chatbot transport queries
+- Complaint submission
+- Admin dashboard operations
 
-    vehicle
+---
 
-    fare
+# 9. Problem Impact & Vision
 
-    instruction
+Target Users:
+- Tourists
+- Students
+- New residents
+- First-time transport users
 
-You can also:
+Impact Goal:
 
-    use the chatbot
+Enable any commuter in Kathmandu to determine:
+- What vehicle to take
+- Where to board
+- How much to pay
 
-    submit a complaint
+Within 10 seconds.
 
-    log in as admin and manage the system
+---
 
-Roadmap / future scope
+# 10. Future Roadmap
 
-    Expand to more cities
+- Expansion beyond Kathmandu
+- Real-time vehicle tracking
+- Multi-language support
+- Official transport authority integration
+- Mobile application version
+- Crowd-sourced live updates
 
-    Real-time vehicle tracking
+---
 
-    Crowd-sourced updates
+# 11. Author
 
-    Multi-language interface
+Asim Pun Magar  
+Frontend Developer  
 
-    Integration with official transport data
+GitHub: https://github.com/asimmagar20  
+
+---
+
+# 12. License
+
+This project is open-source and available under the MIT License.
