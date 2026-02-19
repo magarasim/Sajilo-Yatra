@@ -1,0 +1,33 @@
+/* Root wrapper */
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Generic logo styling (use only where needed) */
+.logo {
+  height: 3rem;
+  width: auto;
+  display: block;
+}
+
+/* If you really want hover glow for a specific logo, scope it: */
+.hero-logo,
+.header-logo {
+  height: 3rem;
+  width: auto;
+  display: block;
+  transition: filter 300ms ease;
+}
+
+.hero-logo:hover,
+.header-logo:hover {
+  filter: drop-shadow(0 0 1.2em rgba(37, 99, 235, 0.4));
+}
+
+/* Optional small helper text */
+.read-the-docs {
+  color: #888;
+  font-size: 0.85rem;
+}

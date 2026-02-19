@@ -1,0 +1,140 @@
+.legal-page {
+  background: #f6f7fb;
+  min-height: 100vh;
+}
+
+/* Hero */
+
+.legal-hero {
+  background:
+    radial-gradient(
+      900px 420px at 15% 25%,
+      rgba(37, 99, 235, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      700px 380px at 85% 30%,
+      rgba(99, 102, 241, 0.25),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #0b1220 0%, #070b18 100%);
+  padding: 56px 0 44px;
+  color: white;
+}
+
+.legal-hero-inner {
+  width: min(1400px, 95%);
+  margin: 0 auto;
+}
+
+.legal-title {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.legal-subtitle {
+  margin: 0;
+  max-width: 720px;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.legal-meta {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Content */
+
+.legal-content {
+  width: min(1195px, 90%);
+  margin: 0 auto;
+  padding: 24px 0 54px;
+  display: grid;
+  gap: 16px;
+}
+
+.legal-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 18px;
+  padding: 18px 18px;
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+}
+
+.legal-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.08rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.legal-card p {
+  margin: 0 0 10px;
+  color: rgba(15, 23, 42, 0.78);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.legal-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(15, 23, 42, 0.78);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.legal-card li {
+  margin: 6px 0;
+}
+
+/* Note box */
+
+.legal-note {
+  margin-top: 10px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  color: rgba(15, 23, 42, 0.78);
+}
+
+/* Inline link */
+
+.legal-inline-link {
+  color: #2563eb;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.legal-inline-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .legal-hero {
+    padding: 44px 0 34px;
+  }
+
+  .legal-content {
+    width: min(100%, 94%);
+    padding: 20px 0 40px;
+  }
+
+  .legal-card {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
+  .legal-title {
+    font-size: 1.8rem;
+  }
+}
+

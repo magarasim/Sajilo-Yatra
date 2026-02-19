@@ -1,0 +1,235 @@
+/* SY Assistant — floating chatbot (main page) */
+
+/* Always fixed to bottom-right of the viewport */
+.sy-assistant {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  left: auto;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+}
+
+/* Chat window: fixed above the toggle button */
+.sy-assistant-window {
+  width: 320px;
+  height: 420px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  animation: sy-assistant-open 0.2s ease-out;
+}
+
+@keyframes sy-assistant-open {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.sy-assistant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #1e40af;
+  min-height: 44px;
+}
+
+.sy-assistant-header-btn {
+  padding: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sy-assistant-header-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.sy-assistant-header-btn img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.sy-assistant-header-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+/* Body */
+.sy-assistant-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Messages */
+.sy-assistant-msg {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.sy-assistant-msg--user {
+  flex-direction: row-reverse;
+}
+
+.sy-assistant-msg--bot .sy-assistant-bubble {
+  background: #f1f5f9;
+  color: #1e293b;
+  border-radius: 12px 12px 12px 4px;
+}
+
+.sy-assistant-msg--user .sy-assistant-bubble {
+  background: #1e40af;
+  color: #fff;
+  border-radius: 12px 12px 4px 12px;
+}
+
+.sy-assistant-avatar {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sy-assistant-bubble {
+  max-width: 85%;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.sy-assistant-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.sy-assistant-typing {
+  color: #64748b;
+}
+
+/* Footer */
+.sy-assistant-footer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.sy-assistant-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.sy-assistant-input:focus {
+  border-color: #1e40af;
+}
+
+.sy-assistant-input:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.sy-assistant-send {
+  padding: 10px 16px;
+  background: #1e40af;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sy-assistant-send:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.sy-assistant-send:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Floating toggle button (fixed at bottom-right) */
+.sy-assistant-toggle {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s;
+}
+
+.sy-assistant-toggle:hover {
+  transform: scale(1.05);
+}
+
+.sy-assistant-toggle img {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+/* Responsive: keep it in the bottom-right corner, but slightly inset on small screens */
+
+@media (max-width: 600px) {
+  .sy-assistant {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .sy-assistant-window {
+    width: min(100vw - 32px, 320px);
+    height: 70vh;
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sy-assistant {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .sy-assistant-window {
+    width: min(100vw - 24px, 320px);
+  }
+}

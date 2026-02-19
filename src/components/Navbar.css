@@ -1,0 +1,194 @@
+.sy-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  /* Gradient background + blur */
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #e0edff 40%,
+    #d8e3ff 70%,
+    #ffffff 100%
+  );
+  background-color: #ffffff;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.sy-nav-inner {
+  width: min(1400px, 95%);
+  margin: 0 auto;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.sy-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.sy-brand-logo {
+  height: 48px;
+  width: auto;
+}
+
+/* Desktop links */
+
+.sy-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.sy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  position: relative;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.78);
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.12s ease;
+}
+
+.sy-link:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: #0f172a;
+  transform: scale(1.02);
+}
+
+.sy-link.active {
+  background: rgba(37, 99, 235, 0.12);
+  color: #0f172a;
+}
+
+.sy-link-primary {
+  padding: 10px 14px;
+  border-width: 0;
+  border-radius: 999px;
+  transition: transform 0.2s ease;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.35),
+    0 0 0 1px rgba(37, 99, 235, 0.18);
+}
+
+.sy-link-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Mobile menu button */
+
+.sy-menu-btn {
+  display: none;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+}
+
+.sy-menu-btn:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* Mobile dropdown container (toggle with a class in JS/React) */
+
+.sy-mobile {
+  display: none;
+  width: min(1120px, 92%);
+  margin: 0 auto 12px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+}
+
+/* If you want a class to show it when open (optional)
+.sy-mobile.open {
+  display: block;
+} */
+
+.sy-mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.sy-mobile-link:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.sy-mobile-primary {
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .sy-nav-inner {
+    gap: 10px;
+  }
+}
+
+/* Mobile breakpoint */
+
+@media (max-width: 768px) {
+  .sy-links {
+    display: none;
+  }
+
+  .sy-menu-btn {
+    display: inline-flex;
+  }
+
+  .sy-mobile {
+    display: block;
+  }
+
+  .sy-nav-inner {
+    padding: 10px 0;
+  }
+}
+
+/* Very small screens */
+
+@media (max-width: 480px) {
+  .sy-brand-logo {
+    height: 38px;
+  }
+
+  .sy-nav-inner {
+    gap: 8px;
+  }
+}

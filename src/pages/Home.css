@@ -1,0 +1,442 @@
+/* =========================
+   1. Global / Base layout
+========================= */
+
+.home-page {
+  background: #f6f7fb;
+  width: min(1400px, 95%);
+  margin: 0 auto;
+}
+
+/* =========================
+   2. Card / common containers
+========================= */
+
+.card {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  border-radius: 22px;
+  background: rgba(249, 250, 251, 0.96);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.35),
+    0 0 0 1px rgba(148, 163, 184, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.search-card {
+  width: 100%;
+}
+
+/* =========================
+   3. Form / travel inputs
+========================= */
+
+.travel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.travel input {
+  width: min(420px, 100%);
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid #cbd5f5;
+  padding: 0 16px;
+  font-size: 0.98rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+  outline: none;
+  transition:
+    border-color 0.16s ease-out,
+    box-shadow 0.16s ease-out,
+    transform 0.1s ease-out;
+  background: #ffffff;
+}
+
+.travel input::placeholder {
+  color: #9ca3af;
+}
+
+.travel input:focus {
+  border-color: #2563eb;
+  box-shadow:
+    0 0 0 1px rgba(37, 99, 235, 0.35),
+    0 8px 22px rgba(15, 23, 42, 0.18);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   4. Buttons
+========================= */
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.primary-btn {
+  min-width: 170px;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #f9fafb;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow:
+    0 12px 25px rgba(37, 99, 235, 0.55),
+    0 0 0 1px rgba(37, 99, 235, 0.45);
+  cursor: pointer;
+  transition:
+    transform 0.12s ease-out,
+    box-shadow 0.12s ease-out,
+    background 0.12s ease-out;
+}
+
+.primary-btn:hover {
+  transform: translateY(-1.5px);
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  box-shadow:
+    0 16px 34px rgba(30, 64, 175, 0.8),
+    0 0 0 1px rgba(37, 99, 235, 0.7);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 6px 16px rgba(15, 23, 42, 0.4),
+    0 0 0 1px rgba(37, 99, 235, 0.8);
+}
+
+.primary-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* =========================
+   5. Button animation
+========================= */
+
+.cta-pulse {
+  animation: cta-pulse 1.8s ease-out infinite;
+}
+
+@keyframes cta-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 12px 25px rgba(37, 99, 235, 0.55),
+      0 0 0 1px rgba(37, 99, 235, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 18px 36px rgba(37, 99, 235, 0.75),
+      0 0 0 1px rgba(191, 219, 254, 0.55);
+  }
+}
+
+/* =========================
+   6. Hero section
+========================= */
+
+.hero {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 16px 56px;
+  overflow: hidden;
+
+  /* Ensure bg image fills hero */
+  background-image: url("src/assets/images/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #f9fafb;
+}
+
+/* overlay */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      700px 380px at 70% 80%,
+      rgba(14, 165, 233, 0.22),
+      transparent 60%
+    ),
+    linear-gradient(100deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.56) 100%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: repeating-linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.06) 0px,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  opacity: 0.07;
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+
+/* =========================
+   7. Hero inner & text
+========================= */
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  display: flex;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 40px;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.hero-copy {
+  text-align: left;
+  color: #e5e7eb;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(69, 69, 188, 0.283);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: clamp(2.1rem, 3.4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.hero-highlight {
+  color: #93c5fd;
+  text-shadow: 0 12px 40px rgba(37, 99, 235, 0.35);
+}
+
+.hero-subtitle {
+  max-width: 560px;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+/* =========================
+   8. Trust pills
+========================= */
+
+.trust-row {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(69, 69, 188, 0.283);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   9. Hero card & fields
+========================= */
+
+.hero-card {
+  max-width: 520px;
+  margin-left: auto;
+  background: rgba(249, 250, 251, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow:
+    0 22px 60px rgba(2, 6, 23, 0.55),
+    0 0 0 1px rgba(148, 163, 184, 0.15);
+}
+
+.card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.card-desc {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+.field {
+  width: 100%;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: rgba(109, 109, 109, 0.72);
+  margin: 0 0 8px 6px;
+}
+
+/* =========================
+   10. Offers / continuous marquee
+========================= */
+
+.offers {
+  padding: 28px 0 50px;
+  background: #f6f7fb;
+}
+
+.offers-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 18px;
+  color: #0f172a;
+}
+
+/* Viewport */
+.slider-3 {
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  padding: 8px 0 0;
+  width: min(1400px, 95%);
+}
+
+/* Track: double logos row */
+.slider-track-3 {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Continuous right-to-left marquee */
+.slider-track-3--marquee {
+  animation: partners-marquee 30s linear infinite;
+}
+
+/* Move left by half (because content is duplicated) */
+@keyframes partners-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Each logo */
+.slide-3 {
+  flex: 0 0 auto;
+  width: 178px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.slide-3 img {
+  width: 100%;
+  height: 65px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 3px 4px rgba(15, 23, 42, 0.12);
+}
+
+/* =========================
+   12. Responsive
+========================= */
+
+@media (max-width: 900px) {
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .hero-card {
+    margin: 0 auto;
+    max-width: 560px;
+  }
+
+  .slide-3 {
+    width: 150px;
+    padding: 8px;
+  }
+
+  .slide-3 img {
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-3 {
+    width: 130px;
+    padding: 6px;
+  }
+
+  .slide-3 img {
+    height: 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    white-space: normal;
+    overflow: visible;
+  }
+}

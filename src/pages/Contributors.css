@@ -1,0 +1,386 @@
+.contributors-page {
+  min-height: calc(100vh - 72px);
+  padding: 0 0 56px;
+  background: radial-gradient(
+    circle at top,
+    #e0f2fe 0,
+    #f9fafb 50%,
+    #e5e7eb 100%
+  );
+}
+
+.contributors-wrap {
+  width: min(1400px, 95%);
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ===== Rewards banner ===== */
+
+.contributors-rewards {
+  padding: 32px 0 28px;
+}
+
+.contributors-rewards-inner {
+  width: 100%;
+}
+
+.contributors-rewards-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 28px 26px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 50%, #2563eb 100%);
+  box-shadow:
+    0 20px 50px rgba(30, 64, 175, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+  color: #fff;
+  gap: 20px;
+}
+
+.contributors-rewards-left {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+.contributors-welcome {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.contributors-rewards-title {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.contributors-points-block {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.contributors-points-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.contributors-points-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.contributors-rewards-hint {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.9;
+  line-height: 1.45;
+}
+
+/* Right part of banner (badge/info) */
+
+.contributors-rewards-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contributors-rewards-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(191, 219, 254, 0.7);
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+/* ===== Main card + layout ===== */
+
+.contributors-card {
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: rgba(249, 250, 251, 0.98);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.15),
+    0 0 0 1px rgba(148, 163, 184, 0.2);
+}
+
+.contributors-loading {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.contributors-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 340px);
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* ===== Form ===== */
+
+.contributors-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contributors-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.contributors-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #374151;
+}
+
+.contributors-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.contributors-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.contributors-textarea {
+  resize: vertical;
+  min-height: 88px;
+}
+
+.contributors-submit {
+  width: 100%;
+  max-width: 220px;
+  margin-top: 8px;
+}
+
+/* ===== Side column ===== */
+
+.contributors-side {
+  position: static;
+}
+
+.contributors-side-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contributors-header {
+  padding-bottom: 18px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.contributors-title {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #0f172a;
+}
+
+.contributors-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.contributors-side-header {
+  padding-bottom: 18px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.contributors-side-title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.contributors-side-caption {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.contributors-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contributors-section-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.contributors-caption {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.contributors-remarks {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: normal;
+}
+
+/* ===== List ===== */
+
+.contributors-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contributors-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.contributors-status {
+  margin-left: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: lowercase;
+  font-weight: 600;
+}
+
+.contributors-status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.contributors-status-rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.contributors-status-approved {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.contributors-thumb {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.contributors-empty {
+  margin: 0;
+  padding: 16px;
+  color: #6b7280;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px dashed #e5e7eb;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+  .contributors-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Put side content on top on tablets/phones */
+  .contributors-side {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .contributors-rewards-card {
+    grid-template-columns: 1fr;
+    padding: 22px 20px;
+    text-align: center;
+  }
+
+  .contributors-rewards-left {
+    align-items: center;
+  }
+
+  .contributors-rewards-right {
+    justify-content: center;
+  }
+
+  .contributors-rewards-badge {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+    min-width: auto;
+  }
+
+  .contributors-points-value {
+    font-size: 2rem;
+  }
+
+  .contributors-card {
+    padding: 20px 16px;
+  }
+
+  .contributors-submit {
+    max-width: none;
+  }
+
+  .contributors-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

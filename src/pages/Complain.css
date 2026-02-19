@@ -1,0 +1,314 @@
+/* Container & Background */
+.page-complain-page {
+  min-height: 100vh;
+  padding: 40px 0 80px;
+  background: radial-gradient(
+    circle at top,
+    #e0f2fe 0,
+    #f9fafb 50%,
+    #e5e7eb 100%
+  );
+  display: flex;
+  justify-content: center;
+}
+
+.complain-inner {
+  width: min(1400px, 95%);
+  margin: 0 auto;
+}
+
+/* Main Card */
+.complain-card {
+  padding: 32px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.15),
+    0 0 0 1px rgba(148, 163, 184, 0.1);
+}
+
+/* Header */
+.complain-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.complain-title {
+  margin: 0 0 8px;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #dc2626;
+}
+
+.complain-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+/* Grid Layout */
+.complain-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Form Styling */
+.complain-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.complain-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.complain-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.complain-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 1rem;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.complain-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+.complain-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Buttons */
+.primary-btn {
+  background: #2563eb;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.primary-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.primary-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.complain-submit {
+  align-self: flex-start;
+  min-width: 180px;
+}
+
+/* Feedback Messages */
+.complain-error {
+  color: #be123c;
+  background: #fff1f2;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid #fecdd3;
+}
+
+.complain-success-block {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.complain-success {
+  color: #166534;
+  font-weight: 600;
+  margin: 0;
+}
+
+.complain-ref {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: #15803d;
+}
+
+/* Status Check Section */
+.complain-status-check {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 2px dashed #e2e8f0;
+}
+
+.complain-status-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.complain-status-text {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.complain-status-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.complain-status-input {
+  max-width: 300px;
+}
+
+.complain-status-result {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Sidebar */
+.complain-side-card {
+  padding: 32px 24px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff 0%, #eff6ff 100%);
+  border: 1px solid #dbeafe;
+  text-align: center;
+  position: sticky;
+  top: 24px;
+}
+
+.complain-icon-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.complain-icon-wrap {
+  width: 64px;
+  height: 64px;
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.complain-icon {
+  font-size: 1.75rem;
+}
+
+.complain-police-icon {
+  font-size: 2.5rem;
+}
+
+.complain-side-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 12px;
+}
+
+.complain-side-text {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .complain-card {
+    padding: 28px 20px;
+  }
+
+  .complain-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* give the sidebar wrapper a class="complain-side" in JSX/HTML */
+  .complain-side {
+    order: -1;
+  }
+
+  .complain-side-card {
+    position: static;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .complain-icon-row {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-complain-page {
+    padding: 24px 0 56px;
+  }
+
+  .complain-card {
+    padding: 24px 16px;
+    border-radius: 0;
+  }
+
+  .complain-title {
+    font-size: 1.6rem;
+  }
+
+  .complain-status-row {
+    flex-direction: column;
+  }
+
+  .complain-status-input {
+    max-width: none;
+  }
+
+  .complain-side-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
